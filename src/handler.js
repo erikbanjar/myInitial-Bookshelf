@@ -17,7 +17,7 @@ const addBookHandler = (request, h) => {
     } = request.payload;
 
     /**
-        Client tidak melampirkan properti namepada request body
+        Client does not attach any name property to the request body.
     */
 
     if (!name) {
@@ -31,7 +31,7 @@ const addBookHandler = (request, h) => {
     }
 
     /**
-        Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount.
+        Client attaches a readPage property value that is greater than the pageCount property value.
     */
 
     if (readPage > pageCount) {
@@ -68,7 +68,7 @@ const addBookHandler = (request, h) => {
     const isSuccess = books.filter((book) => book.id === id).length > 0;
 
     /**
-        Bila buku berhasil dimasukkan
+        Book is successfully loaded.
     */
 
     if (isSuccess) {
@@ -85,7 +85,7 @@ const addBookHandler = (request, h) => {
     }
 
     /**
-        Server gagal memasukkan buku karena alasan umum(generic error).
+        Server failed to load book for a common reason (generic error).
     */
 
     const response = h.response({
@@ -141,7 +141,7 @@ const getBookByIdHandler = (request, h) => {
     const book = books.filter((b) => b.id === id)[0];
 
     /**
-        Bila buku dengan id yang dilampirkan ditemukan
+        Book with an attached id is found
     */
 
     if (book !== undefined) {
@@ -154,7 +154,7 @@ const getBookByIdHandler = (request, h) => {
     }
 
     /**
-        Bila buku dengan id yang dilampirkan oleh client tidak ditemukan
+        Book with the id attached by client is not found.
     */
 
     const response = h.response({
@@ -184,7 +184,7 @@ const editBookByIdHandler = (request, h) => {
     const index = books.findIndex((book) => book.id === id);
 
     /**
-        Client tidak melampirkan properti name pada request body.
+        Client does not attach any name property to the request body.
     */
 
     if (!name) {
@@ -198,7 +198,7 @@ const editBookByIdHandler = (request, h) => {
     }
 
     /**
-        Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount.
+        Client attaches a readPage property value that is greater than the pageCount property value.
     */
 
     if (readPage > pageCount) {
@@ -229,7 +229,7 @@ const editBookByIdHandler = (request, h) => {
         };
 
         /**
-            Buku berhasil diperbarui.
+            Book updated successfully.
         */
 
         const response = h.response({
@@ -242,7 +242,7 @@ const editBookByIdHandler = (request, h) => {
     }
 
     /**
-        Buku gagal diperbarui karena Id tidak ditemukan.
+        Book failed to update because Id was not found.
     */
 
     const response = h.response({
@@ -262,7 +262,7 @@ const deleteBookByIdHandler = (request, h) => {
     const index = books.findIndex((note) => note.id === id);
 
     /**
-        Bila id dimiliki oleh salah satu buku
+        The id belongs to one of the books.
     */
 
     if (index !== -1) {
@@ -277,7 +277,7 @@ const deleteBookByIdHandler = (request, h) => {
     }
 
     /**
-        Bila id yang dilampirkan tidak dimiliki oleh buku manapun
+        The id attached is not owned by any book.
     */
 
     const response = h.response({
